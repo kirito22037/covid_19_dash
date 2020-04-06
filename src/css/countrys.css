@@ -1,0 +1,36 @@
+#part2Wrapper{
+    width : 100vw;
+    display: flex;
+    height : auto;
+}
+
+#part2{
+    width : 70vw;
+    margin: 15px auto;
+    padding: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 8px;
+    
+}
+form{
+    display: flex;
+}
+#inputBox{
+    margin : 5px 10px;
+    flex:1;
+    padding: 10px;
+    border-radius: 8px;
+    border : 1px solid grey;
+    outline: none;
+
+}
+
+#inputBox:focus {
+    border: 3px solid #666;;
+  }
+
+  @media only screen and (max-width: 680px) {
+    #part2{
+        width : 90vw;
+    }   
+   }
