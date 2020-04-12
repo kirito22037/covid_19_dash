@@ -37,7 +37,7 @@ class CountryGrid extends React.Component{
 
         $.ajax(settings).done( (res2)=>{
             res2 = JSON.parse(res2);
-            //console.log("country data : ",res2.countries_stat);
+            console.log("country data : ",res2.countries_stat);
             
             
             let dataSet = [];

@@ -19,6 +19,13 @@ class OverallStat extends React.Component{
         }
     }
 
+    convertToInt=( str )=>{
+        str = str.replace(/[^\d\.\-]/g, ""); // You might also include + if you want them to be able to type it
+        let num = parseInt(str);
+
+        return num;
+    };
+
     //-----------------fetching data--------------------
     fetchData = ()=>{
         console.log("fetching worlds data");
@@ -43,10 +50,13 @@ class OverallStat extends React.Component{
             
             console.log(response.total_deaths);
 
-            let x = parseInt(response.total_recovered);
-            let y = parseInt(response.total_cases);
-            console.log(x , y);
-            let z=(x/y)*100;
+            let x = this.convertToInt(response.total_recovered);
+            let y = this.convertToInt(response.total_cases);
+            console.log("the recover % is : " , x , y);
+            let z=parseFloat((x / y )*100);
+            
+            z = Math.ceil(z);
+
             console.log(z);
 
             $("#cardRefr").css("display","none");
@@ -58,7 +68,7 @@ class OverallStat extends React.Component{
                         death : response.total_deaths,
                         case : response.total_cases,
                         recovered : response.total_recovered,
-                        recovPer :  55
+                        recovPer :  z
                     }
                 }
             })
